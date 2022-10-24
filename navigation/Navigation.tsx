@@ -4,39 +4,58 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import GalleryScreen from "./Screens/GaleryScreen";
 import InfoScreen from "./Screens/InfoScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {Image} from "react-native";
+import popcorn from './../assets/image/icons/popcorn.png'
+import movies from './../assets/image/icons/movies.png'
+import movie from './../assets/image/icons/movie.png'
+import galery from './../assets/image/icons/galery.png'
 
 const Tab = createBottomTabNavigator();
-// const Stack = createNativeStackNavigator()
 
-export default Navigation = () => {
-
-    // const  DiceScreens =  () => {
-    //     return (
-    //         <Tab.Navigator>
-    //             <Tab.Screen name='Home' component={HomeScreen} />
-    //             <Tab.Screen name='Gallery' component={GalleryScreen} />
-    //             <Tab.Screen name='Info' component={InfoScreen} />
-    //             <Tab.Screen name='Settings' component={SettingsScreen} />
-    //         </Tab.Navigator>
-    //     )
-    // }
-
+// @ts-ignore
+export default Navigations = () => {
     return (
         <NavigationContainer>
-            {/*<Stack.Navigator>*/}
-            {/*    <Stack.Screen name='home' component={HomeScreen}   />*/}
-            {/*    <Stack.Screen name='Gallery' component={GalleryScreen}   />*/}
-            {/*    <Stack.Screen name='Info' component={InfoScreen} />*/}
-            {/*    <Stack.Screen name='Settings' component={SettingsScreen}  />*/}
-            {/*</Stack.Navigator>*/}
-            <Tab.Navigator>
-                <Tab.Screen name='Home' component={HomeScreen} />
-                <Tab.Screen name='Gallery' component={GalleryScreen} />
-                <Tab.Screen name='Info' component={InfoScreen} />
-                <Tab.Screen name='Settings' component={SettingsScreen} />
+            <Tab.Navigator
+                screenOptions={{
+                tabBarActiveTintColor: 'green',
+            }}>
+                <Tab.Screen
+                    name='Home 11'
+                    component={HomeScreen}
+                options={{
+                    tabBarIcon: ({color, size}) => (
+                        <Image source={popcorn}
+                               style={{width:30, height:30}}/>
+                    )
+                }}
+                />
+                <Tab.Screen name='Gallery' component={GalleryScreen}
+                            options={{
+                                tabBarIcon: ({color, size}) => (
+                                    <Image
+                                           source={galery}
+                                           style={{width:30, height:30}}/>
+                                )
+                            }}
+                />
+                <Tab.Screen name='Info' component={InfoScreen}
+                            options={{
+                                tabBarIcon: ({color, size}) => (
+                                    <Image source={movies}
+                                           style={{width:30, height:30}}/>
+                                )
+                            }}
+                />
+                <Tab.Screen name='Settings' component={SettingsScreen}
+                            options={{
+                                tabBarIcon: ({color, size}) => (
+                                    <Image source={movie}
+                                           style={{width:30, height:30}}/>
+                                )
+                            }}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     )
-
 }
